@@ -835,24 +835,46 @@ $(function () {
   });
 
   // magnification
-  $("#setmag").click(function () {
-    showToast("Magnification set");
-    type("Now you can see the output image.");
+  // $("#setmag").click(function () {
+  //   showToast("Magnification set");
+  //   type("Now you can see the output image.");
 
-    mode = $(".imgMode option:selected").text();
-    // inp = $("#position :selected").val();
+  //   mode = $(".imgMode option:selected").text();
+  //   // inp = $("#position :selected").val();
 
-    url = "../images/outputs/" + av + mag + item + mode + ".jpg";
+  //   url = "../images/outputs/" + av + mag + item + mode + ".jpg";
 
-    $("#outImage2").attr("src", url);
-    $("#outImage2").attr("alt", url);
+  //   $("#outImage2").attr("src", url);
+  //   $("#outImage2").attr("alt", url);
 
-    $("#outImage1").attr("src", url);
-    $("#outImage1").attr("alt", url);
+  //   $("#outImage1").attr("src", url);
+  //   $("#outImage1").attr("alt", url);
 
-    $("#outImage3").attr("src", url);
-    $("#outImage3").attr("alt", url);
-  });
+  //   $("#outImage3").attr("src", url);
+  //   $("#outImage3").attr("alt", url);
+  // });
+
+  // density values
+  document.getElementById("calcForm").addEventListener("submit", function(event) {
+    // Prevent the form from submitting the traditional way (reloading the page)
+    event.preventDefault();
+
+    // Get the value from the input field
+    let lengthValue = parseFloat(document.getElementById("lengthInput").value);
+
+    // Check if the value is a number
+    if (!isNaN(lengthValue)) {
+        // Calculate the result using the formula: ρ = length / (66 * 100)
+        let result = lengthValue / (66 * 100);
+
+        // Display the result in the result input field
+        document.getElementById("resultInput").value = result.toFixed(4); // Displaying 4 decimal places
+    } else {
+        // If the input is not a number, alert the user
+        alert("Please enter a valid number.");
+    }
+});
+
 
   // insert
   $("#removeButton").click(function () {
@@ -954,17 +976,17 @@ function drawBeam() {
 
     if (english) {
       type(
-        "The output image is displaying on the right side, you can also change the magnification."
+        "The output image is displaying on the right side, To calculate the dislocation density count the number of these dislocation lines within image."
       );
       textToSpeech(
-        "The output image is displaying on the right side, you can also change the magnification."
+        "The output image is displaying on the right side, To calculate the dislocation density count the number of these dislocation lines within image."
       );
     } else {
       type(
-        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, आप आवर्धन भी बदल सकते हैं|"
+        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, विस्थापन घनत्व की गणना करने के लिए छवि में इन विस्थापन रेखाओं की संख्या गिनें। "
       );
       textToSpeech(
-        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, आप आवर्धन भी बदल सकते हैं|",
+        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, विस्थापन घनत्व की गणना करने के लिए छवि में इन विस्थापन रेखाओं की संख्या गिनें। ",
         "hi-IN"
       );
     }

@@ -165,8 +165,8 @@
           <label for="input">Choose Material: </label>
           <select class="imgMode" onchange="change()" id="position" disabled>
             <option disabled selected>Select</option>
-            <option value="1">Single Crystalline</option>
-            <option value="2">Ploy Crystalline</option>
+            <option value="1">Steel Material</option>
+            
           </select>
         </div>
         <!-- Choosing material end -->
@@ -179,7 +179,7 @@
         <!-- beam off -->
 
         <!-- magnification slider -->
-        <div class="boxx mt-2">
+        <!-- <div class="boxx mt-2">
           <label for="formControlRange">Magnification</label>
           <div class="row">
             <div class="col-9">
@@ -194,6 +194,32 @@
               <button id="setmag" class="button-91 w-100" disabled>Set</button>
             </div>
           </div>
+        </div> -->
+        <!-- Density calculator Input Box -->
+        <div class="boxx ">
+          <form id="calcForm">
+            <!-- Text Input Field -->
+            <label for="name">Length:</label>
+            <input
+              type="text"
+              id="lengthInput"
+              name="name"
+              placeholder=""
+              required
+            />
+            <br />
+            <br />
+            <!-- Submit Button -->
+            <button class="button-91 w-25 p-2" type="submit">Density</button>
+           
+            <label for="result">Result (ρ):</label>
+            <input
+              type="text"
+              id="resultInput"
+              name="result"
+              readonly
+            /><br /><br />
+          </form>
         </div>
         <!-- magnification slider end -->
       </div>
@@ -395,7 +421,7 @@
                 id="outImage1"
                 style="display: none"
                 class="w-100"
-                src="../images/outputs/dot.jpg"
+                src="../images/outputs/dislocatedImage.jpg"
               />
             </figure>
             <figure data-zoom data-zoom-max="5">
